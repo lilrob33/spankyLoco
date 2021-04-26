@@ -1,0 +1,598 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Spanky Loco</title>
+    <style type="text/css">
+        #navbar {
+            overflow: hidden;
+            background-color: black;
+            z-index: 999;
+        }
+
+            #navbar a {
+                float: left;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 40px;
+                text-decoration: none;
+            }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+        }
+
+        a {
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .sticky + .content {
+            padding-top: 60px;
+        }
+
+        .content {
+            padding: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            margin-left: 0px;
+        }
+
+        .margin {
+            margin: 5% 0;
+        }
+
+        @media only screen and (max-device-width: 1366px) {
+            .parallax {
+                background-attachment: scroll;
+            }
+        }
+
+        .parallax {
+            background: url('./assets/spanky.PNG') fixed 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 600px;
+        }
+
+        .parallax-inner {
+            padding-top: 30%;
+            padding-bottom: 30%;
+        }
+
+        @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+        body {
+            font-family: 'Titillium Web', sans-serif;
+            color: white;
+            background: linear-gradient(to left, #4169e1, #191970 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3em;
+            position: relative;
+            padding-left: 10px;
+            font-family: oldenglish;
+            color: black;
+        }
+
+        img {
+            height: 300px;
+            width: 300px;
+            padding-left: 10px;
+        }
+
+        .cardholder {
+            margin-top: 100px;
+            perspective: 450px;
+        }
+
+        .card {
+            width: 300px;
+            height: 300px;
+            background-color: transparent;
+            transform: rotateY(50deg);
+            box-shadow: -6px 5px 13px 2px rgba(0, 0, 0, 0.25);
+            transition: all 1s ease;
+            color: transparent;
+        }
+
+            .card:hover {
+                width: 300px;
+                height: 300px;
+                background-color: transparent;
+                transform: rotateY(0deg);
+                box-shadow: 0px 0px 36px 2px rgba(0, 0, 0, 0.25);
+                color: black;
+            }
+
+        .row {
+            display: flex;
+            /*flex-wrap: wrap;*/
+            padding: 0 4px;
+        }
+
+        .col {
+            /*flex: 40%;*/
+            padding: 0 8px;
+            margin-left: 40px;
+            float: left;
+            width: 33.33%;
+        }
+
+            .col img {
+                margin-top: 8px;
+                vertical-align: central;
+            }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+
+        .bg {
+            position: relative;
+        }
+
+            .bg::before {
+                content: "";
+                background-image: url('./assets/spanky7.png');
+                opacity: 0.2;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
+                left: 0px;
+            }
+
+            
+
+        .bio {
+            text-align: center;
+            color: aliceblue;
+            display: block;
+            margin: 4px 20px 4px 20px;
+            padding: 10px 40px 10px 40px;
+        }
+
+        .music {
+            text-align: center;
+            padding-left: 75px;
+        }
+
+        .events {
+            text-align: center;
+        }
+
+        .shop {
+            position: center;
+            text-align: center;
+        }
+
+        .product {
+            text-align: center;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+        }
+
+        .product button {
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+            .product button:hover {
+                opacity: 0.7;
+                cursor: pointer;
+            }
+
+        .price {
+            color: black;
+            font-size: 22px;
+        }
+
+        .footer {
+            text-align: center;
+            background-color: black;
+        }
+
+        @font-face {
+            font-family: oldenglish;
+            src: url('./assets/Canterbury.ttf');
+        }
+
+        #logo {
+            font-family: oldenglish;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="navbar">
+        <a href="#home">Home</a>
+        <a href="#gallery">Photos</a>
+        <a href="#music">Music</a>
+        <a href="#bio">Bio</a>
+        <a href="#shop">Shop</a>
+        <a href="#events">Events</a>
+        <a data-testid="linkElement" href="https://www.youtube.com/channel/UCQcZk9trh_CQx_dIkTEd4AA" target="_blank" rel="noopener" class="kuaV4"><wix-image id="img_0_SITE_STRUCTURE_LinkBar_0" class="rca7A _3SX5h" data-image-info="{&quot;containerId&quot;:&quot;dataItem-kn827vo0-SITE_STRUCTURE_LinkBar_0&quot;,&quot;displayMode&quot;:&quot;fill&quot;,&quot;imageData&quot;:{&quot;width&quot;:200,&quot;height&quot;:200,&quot;uri&quot;:&quot;203dcdc2ac8b48de89313f90d2a4cda1.png&quot;,&quot;displayMode&quot;:&quot;fill&quot;}}" data-has-bg-scroll-effect="" data-bg-effect-name="" data-is-svg="false" data-is-svg-mask="false" data-image-zoomed="" data-has-ssr-src="" data-src="https://static.wixstatic.com/media/203dcdc2ac8b48de89313f90d2a4cda1.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/203dcdc2ac8b48de89313f90d2a4cda1.webp"><img alt="YouTube" src="https://static.wixstatic.com/media/203dcdc2ac8b48de89313f90d2a4cda1.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/203dcdc2ac8b48de89313f90d2a4cda1.webp" style="width: 30px; height: 30px; object-fit: cover;"></wix-image></a>
+
+        <a data-testid="linkElement" href="https://open.spotify.com/artist/1k3e4JvpJQFxuhI8ZRuwh4?si=KjtlBNtoSjerwesY98OF2Q" target="_blank" rel="noopener" class="kuaV4"><wix-image id="img_1_SITE_STRUCTURE_LinkBar_0" class="rca7A _3SX5h" data-image-info="{&quot;containerId&quot;:&quot;dataItem-jd8j1al9-SITE_STRUCTURE_LinkBar_0&quot;,&quot;displayMode&quot;:&quot;fill&quot;,&quot;imageData&quot;:{&quot;width&quot;:200,&quot;height&quot;:200,&quot;uri&quot;:&quot;3004480906aa4cbdb36c2be2b6c6e6d0.png&quot;,&quot;displayMode&quot;:&quot;fill&quot;}}" data-has-bg-scroll-effect="" data-bg-effect-name="" data-is-svg="false" data-is-svg-mask="false" data-image-zoomed="" data-has-ssr-src="" data-src="https://static.wixstatic.com/media/3004480906aa4cbdb36c2be2b6c6e6d0.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/3004480906aa4cbdb36c2be2b6c6e6d0.webp"><img alt="Spotify - White Circle" src="https://static.wixstatic.com/media/3004480906aa4cbdb36c2be2b6c6e6d0.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/3004480906aa4cbdb36c2be2b6c6e6d0.webp" style="width: 30px; height: 30px; object-fit: cover;"></wix-image></a>
+
+        <a data-testid="linkElement" href="https://music.apple.com/us/artist/spanky-loco/154294517?uo=4&amp;app=music" target="_blank" rel="noopener" class="kuaV4"><wix-image id="img_2_SITE_STRUCTURE_LinkBar_0" class="rca7A _3SX5h" data-image-info="{&quot;containerId&quot;:&quot;dataItem-jd8j1ala-SITE_STRUCTURE_LinkBar_0&quot;,&quot;displayMode&quot;:&quot;fill&quot;,&quot;imageData&quot;:{&quot;width&quot;:200,&quot;height&quot;:200,&quot;uri&quot;:&quot;c5606a7474204568bd6daa95bd30e16f.png&quot;,&quot;displayMode&quot;:&quot;fill&quot;}}" data-has-bg-scroll-effect="" data-bg-effect-name="" data-is-svg="false" data-is-svg-mask="false" data-image-zoomed="" data-has-ssr-src="" data-src="https://static.wixstatic.com/media/c5606a7474204568bd6daa95bd30e16f.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/c5606a7474204568bd6daa95bd30e16f.webp"><img alt="Apple Music - White Circle" src="https://static.wixstatic.com/media/c5606a7474204568bd6daa95bd30e16f.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/c5606a7474204568bd6daa95bd30e16f.webp" style="width: 30px; height: 30px; object-fit: cover;"></wix-image></a>
+
+        <a data-testid="linkElement" href="https://www.facebook.com/ogSPANKYLOCO310" target="_blank" rel="noopener" class="kuaV4"><wix-image id="img_3_SITE_STRUCTURE_LinkBar_0" class="rca7A _3SX5h" data-image-info="{&quot;containerId&quot;:&quot;image1qt3-SITE_STRUCTURE_LinkBar_0&quot;,&quot;displayMode&quot;:&quot;fill&quot;,&quot;imageData&quot;:{&quot;width&quot;:200,&quot;height&quot;:200,&quot;uri&quot;:&quot;e0678ef25486466ba65ef6ad47b559e1.png&quot;,&quot;displayMode&quot;:&quot;fill&quot;}}" data-has-bg-scroll-effect="" data-bg-effect-name="" data-is-svg="false" data-is-svg-mask="false" data-image-zoomed="" data-has-ssr-src="" data-src="https://static.wixstatic.com/media/e0678ef25486466ba65ef6ad47b559e1.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/e0678ef25486466ba65ef6ad47b559e1.webp"><img alt="Facebook - White Circle" src="https://static.wixstatic.com/media/e0678ef25486466ba65ef6ad47b559e1.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/e0678ef25486466ba65ef6ad47b559e1.webp" style="width: 30px; height: 30px; object-fit: cover;"></wix-image></a>
+
+        <a data-testid="linkElement" href="https://www.instagram.com/ogspankyloco/" target="_blank" rel="noopener" class="kuaV4"><wix-image id="img_4_SITE_STRUCTURE_LinkBar_0" class="rca7A _3SX5h" data-image-info="{&quot;containerId&quot;:&quot;imagew0q-SITE_STRUCTURE_LinkBar_0&quot;,&quot;displayMode&quot;:&quot;fill&quot;,&quot;imageData&quot;:{&quot;width&quot;:200,&quot;height&quot;:200,&quot;uri&quot;:&quot;da7ef6dd1302486c9a67baebe4b364bc.png&quot;,&quot;displayMode&quot;:&quot;fill&quot;}}" data-has-bg-scroll-effect="" data-bg-effect-name="" data-is-svg="false" data-is-svg-mask="false" data-image-zoomed="" data-has-ssr-src="" data-src="https://static.wixstatic.com/media/da7ef6dd1302486c9a67baebe4b364bc.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/da7ef6dd1302486c9a67baebe4b364bc.webp"><img alt="Instagram - White Circle" src="https://static.wixstatic.com/media/da7ef6dd1302486c9a67baebe4b364bc.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/da7ef6dd1302486c9a67baebe4b364bc.webp" style="width: 30px; height: 30px; object-fit: cover;"></wix-image></a>
+
+        <a data-testid="linkElement" href="https://twitter.com/ogspankyloco" target="_blank" rel="noopener" class="kuaV4"><wix-image id="img_5_SITE_STRUCTURE_LinkBar_0" class="rca7A _3SX5h" data-image-info="{&quot;containerId&quot;:&quot;imagev75-SITE_STRUCTURE_LinkBar_0&quot;,&quot;displayMode&quot;:&quot;fill&quot;,&quot;imageData&quot;:{&quot;width&quot;:200,&quot;height&quot;:200,&quot;uri&quot;:&quot;c4392d634a0148fda8b7b2b0ad98293b.png&quot;,&quot;displayMode&quot;:&quot;fill&quot;}}" data-has-bg-scroll-effect="" data-bg-effect-name="" data-is-svg="false" data-is-svg-mask="false" data-image-zoomed="" data-has-ssr-src="" data-src="https://static.wixstatic.com/media/c4392d634a0148fda8b7b2b0ad98293b.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/c4392d634a0148fda8b7b2b0ad98293b.webp"><img alt="Twitter - White Circle" src="https://static.wixstatic.com/media/c4392d634a0148fda8b7b2b0ad98293b.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01/c4392d634a0148fda8b7b2b0ad98293b.webp" style="width: 30px; height: 30px; object-fit: cover;"></wix-image></a>
+    </div>
+    <script>
+        window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("navbar");
+
+        var sticky = navbar.offsetTop;
+
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+    <div id="home" class="margin"></div>
+
+    <section class="parallax">
+        <div class="parallax-inner">
+        </div>
+    </section>
+    <div class="margin"></div>
+    <div class="bg">
+        <section id="gallery">
+            <div class="gallery">
+                <h1>Photos</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="cardholder">
+                                <div class="card">
+                                    <img src="./assets/spanky6.png" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="cardholder">
+                                <div class="card">
+                                    <img src="./assets/spanky5.png" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="cardholder">
+                                <div class="card">
+                                    <img src="./assets/spanky1.png" />>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="cardholder">
+                                <div class="card">
+                                    <img src="./assets/spanky4.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="cardholder">
+                                <div class="card">
+                                    <img src="./assets/art.png" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="cardholder">
+                                <div class="card">
+                                    <img src="./assets/art1.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="cardholder">
+                                <div class="card">
+                                    <img src="./assets/art3.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="cardholder">
+                                <div class="card">
+                                    <img src="./assets/loco.png" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="cardholder">
+                                <div class="card">
+                                    <img src="./assets/spanky8.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+        </section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <section class="cardholder">
+            <div id="music" class="music">
+                <h1>Loco Music</h1>
+                <wix-iframe id="comp-keq8cg2b" title="Spotify Player" data-src="" aria-label="Spotify Player" tabindex="0" style="width:250px;height:332px"><iframe class="_2x1se" style="width:250px;height:330px" title="Spotify Player" data-src="" scrolling="no" src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A2LkwTsOIq63QoGBmdcSHPE&amp;color=black&amp;style=list"></iframe><div class="_2kpc5"></div></wix-iframe>
+            </div>
+        </section>
+        <div class="margin"></div>
+        <section id="bio"  class="cardholder">
+            <div class="bio">
+                <h1>Bio</h1>
+                <p style="line-height:1.5em;font-size:14px">
+                    <div>
+                        <img class="cardholder" src="./assets/spanky3.png" />
+                    </div>
+                    <div>
+                        <span>
+                            From street life to street poet / artist emerges Spanky Loco. The streets of West Los Angeles is his battleground exploding with sound, violence, money, urban drama, drug sales, and gang tales. Spanky Loco has a long history in the underground music scene , His Guest features include WestCoast&nbsp; pioneers such as M.C. Eight, Slim 400, Jayo Felony, Down, Sylk E. Fine, Bad Azz &amp; the Low Lifes, Playa Hamm, 40-Glock, and Kokane not to mention other well known talent like GT-Garza Paul Wall MR Yosie Locote to name a few, has constructed a place for this ese and his people in the music world.<br>
+                            Growing up in sunny California where rap icons NWA, Run DMC, and EPMD were a few of the sounds that LA radio stations broadcasted, not knowing that they were creating the basic structure in Spanky Loco's music career.<br>
+                            To go along with the projects already completed, Spanky Loco has over 300 songs including extras for soundtracks and compilations.&nbsp; Not only does Spanky bang out west coast hits, he is also a bilingual artist with an equal amount of Spanish music under his belt and is also a creative mind not limited to Painting and Tattooing.. on an international scale doing pop ups all over the World . Securing VIP appointments pushing his branded LA style black and grey tattoo art ! A true artist and Icon in the art and music world.
+                        </span>
+                    </div>
+                </p>
+
+            </div>
+        </section>
+        <div class="margin"></div>
+        <section id="shop">
+            <div class="shop">
+                <h1>Shop</h1>
+                <div class="row">
+                    <div class="col">
+                        <div class="product">
+                            <div class="cardholder">
+                                <img src="./assets/product.png" />
+                                <h2>Spanky Loco Custom Leather Sling</h2>
+                                <p class="price">$450.00</p>
+                                <p>
+                                    Hand Made LEATHER SLING
+                                    SPANKY LOCO LIMITED DESIGN FEATURES CLEAN SLEEK LOOK ! ALL CUSTOM MADE IN LOS ANGELES
+                                </p>
+                                <p><button>Add to cart</button></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="product">
+                            <div class="cardholder">
+                                <img src="./assets/product1.png" />
+                                <h2>Rose "Loca" Crop top Jogger set</h2>
+                                <p class="price">$75.00</p>
+                                <p>Rose crop top joggers ,pants and top are a sold as a set very comfortable high Quality Fabric and print designed by SPANKYLOCO </p>
+                                <p><button>Add to cart</button></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="product">
+                            <div class="cardholder">
+                                <img src="./assets/product2.png" />
+                                <h2>Real Loco the Album</h2>
+                                <p class="price">$13.00</p>
+                                <p>SIGNED copy of REAL LOCO the album w/ Bonus Track -FREE SHIPPING type  IN promo code : “ Real Loco “ at Checkout</p>
+                                <p><button>Add to cart</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="margin"></div>
+        <section id="events">
+            <div class="events">
+                <h1>Events</h1>
+                <div class="margin"></div>
+                <div id="WRchTxtj" class="_2bafp" data-testid="richTextElement">
+                    <p class="font_8" style="line-height:1.3em;text-align:center;font-size:14px"><span style="font-weight:bold"><span style="font-style:italic">EXCLUSIVE VIP TATTOO SESSION&nbsp;</span></span></p>
+
+                    <p class="font_8" style="line-height:1.3em;text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="line-height:1.3em;text-align:center;font-size:14px"><span style="text-decoration:underline"><span style="font-weight:bold">$200 Deposit required&nbsp;</span></span></p>
+
+                    <p class="font_8" style="line-height:1.3em;text-align:center;font-size:14px"><span style="text-decoration:underline"><span style="font-weight:bold">Booking Link Below&nbsp;</span></span></p>
+
+                    <p class="font_8" style="line-height:1.3em;text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold"><span class="wixGuard">​</span></span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold">Los Angeles, California</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">April 22-23-24-25</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">Private Location</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold">O''ahu, Hawaii</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">May 20-21-22-23-24</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">Private Location</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold"><span class="wixGuard">​</span></span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold"><span class="wixGuard">​</span></span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">&nbsp;</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold">Houston Tattoo Arts Convention&nbsp;</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">NRG Center</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">1 NRG Park, Houston, TX 77054</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">June 4-5-6-7-8</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold"><span class="wixGuard">​</span></span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold"><span class="wixGuard">​</span></span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold">Chicago Tattoo Arts Convention&nbsp;</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">Donald E Stephens Convention Center</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">5555 N River Rd, Rosemont, IL 60018</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">July 16 -17 -18-19-20</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold"><span class="wixGuard">​</span></span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">&nbsp;</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">&nbsp;</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold">Brooklyn, New York</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">August 13-14-15-16-17-18</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">Private Location</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">&nbsp;</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">&nbsp;</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold">Philadelphia Tattoo Arts Convention</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">Pennsylvania Convention Center</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">131 N Broad St, Philadelphia, PA 19107</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">September 10-11-12-13-14</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">&nbsp;</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">&nbsp;</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold">Portland Tattoo Arts Convention</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">Rose Quarter, Veterans Memorial Coliseum</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">1 N Center Ct St</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">Portland, OR 97227</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">September 24-25-26-27-28</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span style="font-weight:bold"><span class="wixGuard">​</span></span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">
+                        <span style="font-weight:bold">Baltimore Convention Center</span><br>
+                        1 W Pratt St, Baltimore, MD 21201
+                    </p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px">October 8-9-10-11-12</p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="line-height:1.3em;text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="line-height:1.3em;text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="line-height:1.3em;text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+
+                    <p class="font_8" style="line-height:1.3em;text-align:center;font-size:14px"><span class="wixGuard">​</span></p>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</body>
+
+<footer id="footer">
+    <div class="footer">
+        <p id="logo">SL</p>
+        <p id="copyright">Copyright &copy; 2021 | Spanky Loco</p>
+    </div>
+</footer>
+</html>
